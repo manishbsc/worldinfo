@@ -1,0 +1,55 @@
+<div class="container-fluid" style="text-align:center">
+  <br>
+  <br>
+    <div class="row" style="text-align:center" *ngIf="countryall.length>0 && !isFilterDisplayCurr && !isFilterDisplayLan  ">
+        <div class="col-sm-12" style="font-size:30px">{{countryall[0].region | uppercase}}</div>
+        <br><br><br><br>
+      </div>
+      <div class="row" style="text-align:center" *ngIf="isFilterDisplayCurr">
+          <div class="col-sm-12" style="font-size:30px;color: green;"> Currency Filter Applied{{Continent | uppercase}}</div>
+          <br><br><br><br>
+        </div>
+        <div class="row" style="text-align:center" *ngIf="isFilterDisplayLan">
+            <div class="col-sm-12" style="font-size:30px;color: green;"> Language Filter Applied{{Continent | uppercase}}</div>
+            <br><br><br><br>
+          </div>
+          <br><br><br><br>
+  <div class="row" style="text-align:center" *ngIf="countryall.length>0">
+    <div class="col-sm-6 col-md-4" *ngFor="let country of countryall | paginate: { itemsPerPage: 8, currentPage: p }">
+<div class="card  mb-3" style="max-width: 20rem;">
+    <img class="card-img-top" src="{{country.flag}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{country.name}}</h5>
+      <p class="card-text">Capital  : {{country.capital}}</p>
+      <p class="card-text">Region : {{country.region}}</p>
+      <p class="card-text">Native Name : {{country.nativeName}}</p>
+      <p class="card-text">Currency :</p>
+         <div *ngFor="let c of country.currencies">
+          <span>{{c.name}}</span>
+          </div>
+          <p class="card-text">Languages :</p>
+         <div *ngFor="let c of country.languages">
+          <span>{{c.name}}</span>
+          </div>
+      <a [routerLink]="['/view',country.name]" class="btn btn-primary">View Details</a>
+    </div>
+  </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="row justify-content-center">
+  <pagination-controls (pageChange)="p = $event"  responsive="true"></pagination-controls>
+</div>
+  <div class="row">
+      <div class="col-sm-6">
+  <a class="btn btn-primary btn-lg" (click)="goBackToPreviousPage()" style="margin: 8%">Go Back </a>
+   </div>
+  <div class="col-sm-6">
+  <a class="btn btn-warning  btn-lg" [routerLink]="['/home']" style="margin: 8%">Home </a>
+  </div>  
+  </div>
+</div>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+

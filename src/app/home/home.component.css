@@ -1,0 +1,39 @@
+*{
+    box-sizing: border-box;
+}
+.container-fluid{
+    background-color: #413D3D;
+    width: 100vw;
+}
+
+h1{
+    color: #D1D525;
+    text-align: center;
+}
+
+.example-card {
+    max-width: 400px;
+    margin: 5%;
+    padding: -20%;
+   
+  }
+
+.row{
+      padding: 10px;
+  }
+  .relative{
+      position:relative;
+    }
+
+.absolute-text{ 
+    position:absolute; bottom:0; font-size:24px; font-family:"vedana"; background:rgba(251,251,251,0.5);
+padding:10px 20px; width:90%; text-align:center; 
+}
+
+.absolute-text a{
+    font-size:16px; color:#b92b27;
+}
+.mat-card-image{
+  
+    background-size: contain
+}

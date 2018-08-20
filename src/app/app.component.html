@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <a class="navbar-brand" href="/home">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <form>
+                <mat-form-field>
+                  <mat-select placeholder="Currency fliter" name="viewCurrency" *ngIf="viewCurrency ">
+                    <mat-option *ngFor="let cur of viewCurrency"  (click)="buton(cur.currencies[0].code)">
+                      {{cur.currencies[0].name}}
+                      {{selected}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </form>
+        </li>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <li class="nav-item pad">
+            <form class="pad" >
+                <mat-form-field>
+                  <mat-select placeholder="Language filter" name="viewLanguage">
+                    <mat-option *ngFor="let curr of viewLanguage"  (click)="buton(curr.languages[0].iso639_1)"> 
+                      {{curr.languages[0].name}}
+                
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              
+  
+              </form>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Country Full Name" [(ngModel)]="searchValue"   [ngModelOptions]="{standalone: true}" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/view',searchValue]" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+<router-outlet></router-outlet>
+

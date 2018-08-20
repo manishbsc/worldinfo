@@ -1,0 +1,32 @@
+.root{
+  font-size: 8px;
+}
+.example-card {
+    max-width: 10000px;
+  }
+
+  .example-header-image {
+    background-size: cover;
+    max-width: 1000px;
+  }
+  .mat-card-image{
+    padding: 10%;
+  }
+  .row1{
+    background-color: aqua;
+    overflow:hidden;
+    margin: 5% 0;
+    
+  }
+  .size{
+  font-size: 1.3rem;
+  }
+  .row2{
+    background-color:burlywood;
+   
+  }
+
+  .mat-card-title{
+    font-weight: 150%;
+  }
+  

@@ -1,0 +1,107 @@
+
+<div class="container-fluid" style="text-align:center">
+<mat-card class="example-card" *ngIf=countryview.length>
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image':'url('+s1+')'}"></div>
+      <mat-card-title><b>{{countryview[0].name | uppercase}}</b></mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="{{countryview[0].flag}}" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <div class="row1">
+      <div class="row justify-content-center">
+        <h2><b>Basic Details</b></h2> 
+        </div>
+          <div class="row size" style="text-align:center">  
+        <div class="col-md-6">
+            <p>Name : {{countryview[0].name}}</p>
+              <p>Capital : {{countryview[0].capital}}</p>
+              <p>Region : {{countryview[0].region}}</p>
+              <p>Sub-Region : {{countryview[0].subregion}}</p>
+            </div>
+              <div class="col-md-6">
+              <p>Native-Name : {{countryview[0].nativeName}}</p>
+              <p>Area : {{countryview[0].area}}</p>
+              <p>Population : {{countryview[0].population}}</p>
+              <p>Demonym : {{countryview[0].demonym}}</p>
+    </div>
+    </div>
+  </div>
+
+  <div class="row2">
+      <div class="row justify-content-center">
+        <h2><b>Regional Details</b></h2> 
+        </div>
+          <div class="row size" style="text-align:center">  
+        <div class="col-md-4">
+            <p>Borders : {{countryview[0].borders}}</p>
+          </div>
+          <div class="col-md-4">
+              <p>Languages :</p>
+            <div *ngFor="let c of countryview[0].languages">
+              <span>{{c.name}}</span>
+              </div>
+            </div>
+          
+            <div class="col-md-4">
+              <p>Time-Zone : {{countryview[0].timezones}}</p>
+            </div>
+    </div>
+  </div>
+
+  <div class="row1">
+      <div class="row justify-content-center">
+        <h2><b>Economic Details</b></h2> 
+        </div>
+          <div class="row size" style="text-align:center">  
+        <div class="col-md-6">
+            <p>Currencies : {{countryview[0].currencies[0].name}}</p>
+            </div>
+              <div class="col-md-6">
+              <p>Translations : {{trans}}</p>      
+    </div>
+    </div>
+  </div>
+
+  <div class="row2">
+    <div class="row justify-content-center">
+      <h2><b>Zeographical Details</b></h2> 
+      </div>
+        <div class="row size" style="text-align:center">  
+      <div class="col-md-6">
+          <p>Position</p>
+          <p>Latitude : {{countryview[0].latlng[0]}}</p>
+          </div>
+            <div class="col-md-6">
+                <p>Position</p>
+                <p>Longitude: {{countryview[0].latlng[1]}}</p>     
+  </div>
+  </div>
+</div>
+
+<div class="row1">
+    <div class="row justify-content-center">
+      <h2><b>Other Details</b></h2> 
+      </div>
+        <div class="row size" style="text-align:center">  
+      <div class="col-md-6">
+          <p>Calling codes</p>
+          <p>{{countryview[0].callingCodes}}</p>
+          </div>
+            <div class="col-md-6">
+                <p>CIOC</p>
+                <p>{{countryview[0].cioc}}</p>     
+  </div>
+  </div>
+</div>
+    </mat-card-content>
+    <div class="row">
+        <div class="col-sm-6">
+    <a class="btn btn-primary" (click)="goBackToPreviousPage()" style="margin: 8%">Go Back </a>
+     </div>
+    <div class="col-sm-6">
+    <a class="btn btn-warning  btn-lg" [routerLink]="['/home']" style="margin: 8%">Home </a>
+    </div>  
+    </div>
+  </mat-card>
+</div>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
